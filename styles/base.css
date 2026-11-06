@@ -1,0 +1,77 @@
+:root {
+  color-scheme: light;
+  --paper: #fff;
+  --surface: #fff;
+  --ink: #27232a;
+  --muted: #716b76;
+  --line: #d8d8d8;
+  --purple: #740499;
+  --purple-dark: #54006f;
+  --purple-soft: #f5f0f7;
+  --green: #486747;
+  --green-soft: #edf4e9;
+  --rust: #a9563d;
+  --mono: "Roboto", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+[hidden] { display: none !important; }
+
+.app { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+.topbar, .battle-heading, .arena-label,
+.section-head, .codex-top, .hp-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar { min-height: 70px; gap: 14px; border-bottom: 1px solid var(--line); }
+.brand { color: var(--ink); font-size: 15px; font-weight: 700; text-decoration: none; }
+.brand-icon { color: var(--purple); }
+.brand-dot { color: var(--purple); }
+.top-date, .player-level, .eyebrow, .hp-line, .arena-label {
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.top-date { color: var(--muted); }
+.player-level { padding: 8px 10px; border: 1px solid var(--line); background: var(--surface); }
+
+h1 { margin: 8px 0; font-size: 38px; line-height: 1.1; }
+h1 em { color: var(--purple); font-style: normal; }
+h2 { margin: 6px 0; font-size: 21px; line-height: 1.2; }
+.eyebrow { margin: 0; color: var(--muted); }
+.dark-eyebrow { color: var(--muted); }
+
+.plain-button, .big-button {
+  min-height: 40px;
+  padding: 10px 14px;
+  border: 1px solid var(--purple);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  transition: background-color .1s ease-in, color .1s ease-in;
+}
+.plain-button:hover, .view-profile:hover, .duel-mode:hover { background: var(--purple); color: white; }
+.big-button { border-color: var(--purple); background: var(--purple); color: white; }
+.big-button:hover, .duel-button:hover { background: var(--purple-dark); }
+.light-button { border-color: var(--purple); color: var(--purple); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}

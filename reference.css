@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+html, body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+header h1 {
+    margin: 10px;
+    
+}
+header nav a {
+    margin: 10px;
+    padding: 10px;
+    color: rgb(116, 4, 153);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.1s ease-in;
+}
+header nav a:hover::after {
+    transition: 0.1s ease-out;
+     content: " →";
+}
+.welcome {
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(https://img.magnific.com/free-photo/abstract-gradient-background-with-grain-texture_84443-2838.jpg?semt=ais_hybrid&w=740&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.welcome h2 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 5px white;
+}
+#courses {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+}
+#courses h2 {
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.course-grid {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    justify-items: center;
+
+}
+.course-grid article {
+    margin: 10px;
+    border: 1px solid rgb(116, 4, 153);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 300px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.course-grid article h3 {
+    font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: rgb(116, 4, 153);
+  font-size: 1.5rem;
+}
+.course-grid article h3::after {
+    content: " 😍"
+}
+.course-grid a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid rgb(116, 4, 153);
+    margin: 10px;
+    border-radius: 10px;
+    color: rgb(116, 4, 153);
+    transition: 0.1s ease-in;
+}
+.course-grid a::after {
+    content: " →";
+}
+.course-grid a:hover {
+    background-color: rgb(116, 4, 153);
+    color: white;
+}
+
+#profile {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://img.magnific.com/free-photo/abstract-gradient-background-with-grain-texture_84443-2838.jpg?semt=ais_hybrid&w=740&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    border-radius: 15px;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 50%;
+    border: 1px solid rgb(116, 4, 153);
+    border-radius: 10px;
+}
+#contact form * {
+    margin: 10px;
+}
+#contact form input[type="text"] {
+    width: 400px;
+    padding: 10px 15px;
+}
+#contact form input[type="email"] {
+    width: 400px;
+    padding: 10px 15px;
+}
+.btn {
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid rgb(116, 4, 153);
+    color: rgb(116, 4, 153);
+    border-radius: 10px;
+    transition: 0.1s ease-in;
+}
+.btn:hover {
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+.btn:hover::after {
+    content: " →";
+}
+.chin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+h1::after {
+    content: " 💫"
+}
+
+h2::after {
+    content: " ✨"
+}
+@media (max-width: 1000px) {
+    input {
+        max-width: 100px;
+    }
+    header {
+        flex-direction: column;
+    }
+    .navbar {
+        margin: 10px;
+    }
+}

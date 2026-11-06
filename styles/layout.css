@@ -1,0 +1,14 @@
+.game-layout { display: flex; align-items: flex-start; gap: 20px; margin-top: 20px; }
+.game-layout .battle {
+  width: 66%;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.quests { width: 100%; }
+.right-column { display: flex; width: 34%; min-width: 0; flex-direction: column; }
+.right-column .guild { order: -1; }
+.game-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.change-button { margin-top: 10px; }
+.duel-battle-view .arena { margin-top: 18px; }

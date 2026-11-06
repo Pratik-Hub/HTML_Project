@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Quest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Habit Quest home"><span class="brand-icon">✳</span> HABIT QUEST<span class="brand-dot">.</span></a>
+      <div class="top-date"><span id="today-label"></span></div>
+      <div class="player-level">Level <strong id="level-number">01</strong></div>
+    </header>
+
+    <section class="screen menu-screen" id="menu-screen">
+      <h1>Ready to play?</h1>
+      <div class="menu-creatures" aria-hidden="true"><span>🌱</span><span>👻</span><span>🦇</span></div>
+      <div class="menu-buttons">
+        <button class="plain-button" id="habits-button" type="button">Habits</button>
+        <button class="big-button" id="play-button" type="button">Play</button>
+      </div>
+    </section>
+
+    <section class="screen habits-screen" id="habits-screen" hidden>
+      <h1>Habits</h1>
+      <section class="quests">
+        <div class="section-head">
+          <div><h2>Today</h2></div>
+          <div class="quest-count"><strong id="progress-number">0 / 0</strong><small>done today</small></div>
+        </div>
+        <div class="quest-track"><i id="progress-fill"></i></div>
+        <div class="quest-list" id="habit-list"></div>
+        <p class="save-note" id="save-note" role="status" aria-live="polite"></p>
+        <form class="add-form" id="add-form">
+          <span class="add-icon">＋</span>
+          <label class="sr-only" for="habit-name">Add a daily habit</label>
+          <input id="habit-name" name="habit-name" type="text" maxlength="50" placeholder="New habit">
+          <button type="submit">Add</button>
+        </form>
+      </section>
+      <div class="menu-buttons habits-buttons">
+        <button class="plain-button light-button" id="habits-menu-button" type="button">Menu</button>
+        <button class="big-button" id="habits-game-button" type="button">Play</button>
+      </div>
+    </section>
+
+    <section class="screen selection-screen" id="selection-screen" hidden>
+      <h1>Choose fighters</h1>
+      <div class="selection-cards">
+        <label class="selection-card">
+          <span class="selection-title">You</span>
+          <span class="selection-face" id="pick-player-face" role="img" aria-label="Player creature"></span>
+          <strong id="pick-player-name">Moss Mite</strong>
+          <small id="pick-player-type">MOSS TYPE</small>
+          <select id="player-picker" aria-label="Choose your creature"></select>
+        </label>
+        <label class="selection-card rival-choice">
+          <span class="selection-title">Rival</span>
+          <span class="selection-face" id="pick-enemy-face" role="img" aria-label="Rival creature"></span>
+          <strong id="pick-enemy-name">Dread Hollow</strong>
+          <small id="pick-enemy-type">DUSK TYPE</small>
+          <select id="enemy-picker" aria-label="Choose your rival"></select>
+        </label>
+      </div>
+      <p class="lock-note" id="lock-note"></p>
+      <div class="menu-buttons">
+        <button class="plain-button" id="back-button" type="button">Back</button>
+        <button class="big-button" id="battle-button" type="button">Battle</button>
+      </div>
+    </section>
+
+    <section class="screen game-screen" id="game-screen" hidden>
+      <div class="game-layout">
+      <section class="battle">
+        <div id="regular-battle-view">
+        <div class="battle-heading">
+          <div>
+            <h1>Daily battle</h1>
+          </div>
+          <div class="xp-box">
+            <span>XP</span>
+            <strong id="xp-label">0 / 100 XP</strong>
+            <div class="xp-track"><i id="xp-fill"></i></div>
+          </div>
+        </div>
+
+        <div class="arena">
+          <div class="arena-label"><span>Battle</span></div>
+          <div class="stage" id="battle-stage">
+            <div class="stage-background" aria-hidden="true"></div>
+            <div class="fight-hud player-hud">
+              <strong id="player-name">Moss Mite</strong>
+              <small id="player-type">MOSS TYPE · LV. 01</small>
+              <div class="hp-line"><span>HP</span><b>100 / 100</b></div>
+              <div class="hp-track"><i></i></div>
+            </div>
+            <div class="fight-hud enemy-hud">
+              <strong id="enemy-name">Dread Hollow</strong>
+              <small id="enemy-type">DUSK TYPE · RIVAL</small>
+              <div class="hp-line"><span>HP</span><b id="enemy-hp-label">100 / 100</b></div>
+              <div class="hp-track enemy-hp-track"><i id="enemy-hp"></i></div>
+            </div>
+            <span class="sprite-frame player-sprite" id="player-sprite" role="img" aria-label="Your creature"></span>
+            <span class="sprite-frame enemy-sprite" id="enemy-sprite" role="img" aria-label="Rival creature"></span>
+            <span class="hit-number" id="hit-number">−34</span>
+            <span class="versus">VS</span>
+          </div>
+          <div class="battle-message" id="battle-message" role="status" aria-live="polite"></div>
+        </div>
+        <div class="game-actions">
+          <button class="plain-button change-button" id="change-button" type="button">Change fighters</button>
+          <button class="plain-button change-button" id="game-habits-button" type="button">Habits</button>
+          <button class="plain-button change-button" id="game-menu-button" type="button">Menu</button>
+        </div>
+        </div>
+        <section class="duel-battle-view" id="duel-battle-view" hidden>
+          <div class="battle-heading">
+            <div>
+              <h1 id="duel-battle-title">Duel</h1>
+            </div>
+            <strong class="duel-stake"><span id="duel-stake">10</span> points</strong>
+          </div>
+          <div class="arena">
+            <div class="arena-label"><span>Duel</span><span id="duel-stage-mode">Local rival</span></div>
+            <div class="stage duel-stage" id="duel-stage">
+              <div class="stage-background" aria-hidden="true"></div>
+              <div class="fight-hud player-hud duel-player-hud">
+                <strong id="duel-player-name">Your creature</strong>
+                <small id="duel-player-trainer">YOUR TEAM</small>
+                <div class="hp-line"><span>HP</span><b><span id="duel-player-health">100</span> / 100</b></div>
+                <div class="hp-track"><i id="duel-player-bar"></i></div>
+              </div>
+              <div class="fight-hud enemy-hud duel-rival-hud">
+                <strong id="duel-rival-name">Rival creature</strong>
+                <small id="duel-rival-trainer">RIVAL TRAINER</small>
+                <div class="hp-line"><span>HP</span><b><span id="duel-rival-health">100</span> / 100</b></div>
+                <div class="hp-track enemy-hp-track"><i id="duel-rival-bar"></i></div>
+              </div>
+              <span class="sprite-frame duel-sprite player-sprite" id="duel-player-face" aria-label="Your character"></span>
+              <span class="sprite-frame duel-sprite enemy-sprite" id="duel-rival-face" aria-label="Rival character"></span>
+              <span class="versus">VS</span>
+            </div>
+            <p class="duel-turn" id="duel-turn" role="status" aria-live="polite">Choose your move!</p>
+            <div class="duel-moves" id="duel-moves" hidden>
+              <button class="duel-move" id="attack-move" type="button">Attack</button>
+              <button class="duel-move guard-move" id="guard-move" type="button">Guard</button>
+            </div>
+            <div class="duel-result" id="duel-result" hidden>
+              <strong id="duel-result-title"></strong>
+              <p id="duel-result-copy"></p>
+              <button class="big-button" id="back-to-battle" type="button">Back to battle</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="right-column">
+          <section class="codex">
+            <div class="codex-top"><h2>Collection</h2></div>
+            <div class="collection-bar"><i id="collection-fill"></i></div>
+            <p id="collection-note">0 / 200 collected</p>
+            <div class="recent-unlocks" id="recent-unlocks" aria-label="Recently discovered creatures"></div>
+          </section>
+          <section class="leaderboard">
+            <div class="leaderboard-heading">
+              <div>
+                <h2>Weekly ranks</h2>
+              </div>
+              <strong class="leaderboard-position" id="leaderboard-position">#6</strong>
+            </div>
+            <ol class="leaderboard-list" id="leaderboard-list" aria-label="Weekly ranks"></ol>
+          </section>
+          <section class="guild">
+            <div class="leaderboard-heading">
+              <div>
+                <h2>Duels</h2>
+              </div>
+              <strong class="guild-points"><span id="duel-points">0</span> PTS</strong>
+            </div>
+            <p class="guild-record">Record: <strong id="your-duel-record">0 W · 0 L</strong></p>
+            <p class="guild-note">10 points per habit · 10 per duel.</p>
+            <div class="duel-mode-picker" id="duel-mode-picker">
+              <button class="duel-mode is-selected" id="computer-mode" type="button" aria-pressed="true">vs computer</button>
+              <button class="duel-mode" id="pvp-mode" type="button" aria-pressed="false">Local PvP</button>
+            </div>
+            <p class="duel-mode-note" id="duel-mode-note">Play against the computer.</p>
+            <div class="guild-players" id="guild-players"></div>
+            <section class="profile-card" id="profile-card" hidden>
+              <div class="profile-top">
+                <span class="profile-face" id="profile-face"></span>
+                <div>
+                  <strong id="profile-name"></strong>
+                  <small id="profile-creature"></small>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <span id="profile-level"></span>
+                <span id="profile-record"></span>
+              </div>
+              <button class="duel-button" id="duel-button" type="button">Duel · 10 points</button>
+            </section>
+            <p class="duel-message" id="duel-message" role="status" aria-live="polite"></p>
+          </section>
+      </aside>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script src="duels.js"></script>
+</body>
+</html>

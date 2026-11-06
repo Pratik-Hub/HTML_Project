@@ -1,0 +1,53 @@
+@media (max-width: 800px) {
+  .game-layout { display: block; }
+  .game-layout .battle, .right-column { width: 100%; }
+  .right-column { margin-top: 20px; }
+  .right-column .guild { order: 0; }
+}
+
+@media (max-width: 700px) {
+  .stage { height: 300px; }
+  .sprite-frame { width: 112px; height: 112px; }
+  .duel-stage .sprite-frame { width: 118px; height: 118px; }
+  .menu-screen, .selection-screen { min-height: 0; padding: 45px 18px; }
+  .habits-screen { padding: 30px 12px; }
+  .menu-screen h1, .selection-screen h1 { font-size: 42px; }
+}
+
+@media (max-width: 520px) {
+  .app { padding: 0 12px; }
+  .topbar { min-height: 60px; }
+  .top-date { font-size: 8px; text-align: center; }
+  .player-level { padding: 7px; font-size: 9px; }
+  .game-layout .battle { padding: 14px 10px; }
+  .battle-heading { display: block; }
+  h1 { font-size: 32px; }
+  .xp-box { width: auto; margin-top: 15px; }
+  .stage { height: 280px; }
+  .arena { padding: 8px; }
+  .arena-label { font-size: 8px; }
+  .fight-hud { top: 8px; width: 43%; padding: 7px; }
+  .player-hud { left: 5px; }
+  .enemy-hud { right: 5px; }
+  .fight-hud strong { font-size: 10px; }
+  .fight-hud small { font-size: 7px; }
+  .sprite-frame { bottom: 28px; width: 96px; height: 96px; }
+  .player-sprite { left: 9%; }
+  .enemy-sprite { right: 9%; }
+  .duel-stage .sprite-frame { width: 104px; height: 104px; }
+  .fighter-pickers { display: block; }
+  .fighter-pickers label { display: block; margin-top: 9px; }
+  .hit-number { left: 48%; font-size: 17px; }
+  .versus { top: 60%; }
+  .selection-cards { display: block; margin-top: 20px; }
+  .selection-card { margin-bottom: 12px; }
+  .menu-buttons { flex-direction: column-reverse; }
+  .menu-buttons button { width: 100%; }
+  .habits-screen h1 { font-size: 32px; }
+  .habits-screen .quests { padding: 12px; }
+  .game-actions { flex-direction: column; align-items: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

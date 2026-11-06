@@ -1,0 +1,118 @@
+.battle-heading { gap: 16px; margin-bottom: 18px; }
+.xp-box { width: 205px; flex-shrink: 0; }
+.xp-box > span, .xp-box > strong, .xp-box small { display: block; color: var(--muted); font-size: 10px; }
+.xp-box strong { color: var(--ink); font: 12px var(--mono); }
+.xp-track, .hp-track, .quest-track, .collection-bar {
+  height: 7px;
+  margin: 8px 0;
+  overflow: hidden;
+  background: #e5e8df;
+}
+.xp-track i, .hp-track i, .quest-track i, .collection-bar i {
+  display: block;
+  height: 100%;
+  background: var(--green);
+}
+.xp-track i { background: #b89a48; }
+
+.arena { padding: 12px; border: 1px solid var(--line); background: #fff; }
+.arena-label { gap: 10px; color: var(--muted); }
+.stage {
+  position: relative;
+  height: 340px;
+  margin-top: 10px;
+  overflow: hidden;
+  background: #d9e0d4;
+}
+.stage-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #d9e0d4 url("../assets/bg.jpg") center 58% / cover no-repeat;
+}
+.fight-hud {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  width: 36%;
+  padding: 10px;
+  background: rgba(39, 35, 42, .94);
+  color: white;
+}
+.player-hud { left: 12px; }
+.enemy-hud { right: 12px; text-align: right; }
+.fight-hud strong, .fight-hud small { display: block; }
+.fight-hud strong { font-size: 13px; }
+.fight-hud small { margin-top: 4px; color: #d4ddd1; font: 9px var(--mono); }
+.hp-line { margin-top: 9px; color: #d4ddd1; font-size: 8px; }
+.hp-line b { color: white; font-weight: 500; }
+.hp-track { height: 6px; margin-bottom: 0; background: rgba(255,255,255,.25); }
+.hp-track i { background: #a8cf88; }
+.enemy-hp-track i { background: #df8c7c; }
+
+.sprite-frame {
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  display: block;
+  width: 128px;
+  height: 128px;
+  background-repeat: no-repeat;
+  background-size: 300% 400%;
+  image-rendering: pixelated;
+}
+.player-sprite { left: 22%; }
+.enemy-sprite { right: 22%; transform: scaleX(-1); }
+.hit-number {
+  position: absolute;
+  z-index: 2;
+  top: 53%;
+  left: 55%;
+  color: #fff3a8;
+  font: bold 23px var(--mono);
+  opacity: 0;
+  text-shadow: 2px 2px #302b3b;
+}
+.versus {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  color: white;
+  font: bold 16px var(--mono);
+  text-shadow: 1px 2px #222;
+}
+.battle-message { min-height: 38px; padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink); text-align: center; }
+.fighter-pickers { display: flex; gap: 12px; margin-top: 10px; }
+.fighter-pickers label { flex: 1; color: var(--muted); font: 9px var(--mono); }
+.fighter-pickers select { display: block; width: 100%; margin-top: 5px; padding: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 11px; }
+
+.duel-stage .fight-hud { width: 38%; }
+.duel-stage .sprite-frame { width: 150px; height: 150px; }
+.duel-stage .duel-sprite { background-repeat: no-repeat; background-size: 300% 400%; image-rendering: pixelated; }
+.duel-stage .enemy-sprite { transform: scaleX(-1); }
+.duel-stage .duel-hit { animation: duel-hit .35s ease; }
+.duel-turn { min-height: 36px; margin: 0; padding: 10px; border-top: 1px solid var(--line); color: var(--ink); font-size: 13px; line-height: 1.4; text-align: center; }
+.duel-moves { display: flex; max-width: 440px; gap: 8px; margin: 12px auto; }
+.duel-moves[hidden] { display: none !important; }
+.duel-move { flex: 1; padding: 12px; border: 1px solid var(--purple); background: var(--purple); color: white; font: bold 12px var(--mono); }
+.duel-move:hover { background: var(--purple-dark); }
+.guard-move { border-color: var(--line); background: white; color: var(--purple); }
+.guard-move:hover { background: var(--purple-soft); color: var(--purple); }
+.duel-move:disabled { opacity: .5; cursor: not-allowed; }
+.duel-result { padding: 20px; background: var(--purple-soft); text-align: center; }
+.duel-result strong { display: block; color: var(--purple); font-size: 32px; }
+.duel-result p { margin: 8px 0 16px; color: var(--muted); }
+.duel-stake { color: var(--green); font: bold 12px var(--mono); }
+
+.stage.attacking .player-sprite { animation: lunge .35s ease; }
+.stage.attacking .enemy-sprite { animation: flinch .35s ease; }
+.stage.attacking .hit-number { animation: show-hit .65s ease; }
+.stage.enemy-down .enemy-sprite { opacity: .25; }
+@keyframes lunge { 50% { translate: 75px 0; } }
+@keyframes flinch { 25% { translate: -10px 0; rotate: -8deg; filter: brightness(2); } 75% { translate: 5px 0; } }
+@keyframes show-hit { 20% { opacity: 1; translate: 0 -12px; } 80% { opacity: 1; } }
+@keyframes duel-hit { 50% { translate: 0 -14px; scale: 1.15; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

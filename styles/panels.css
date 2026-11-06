@@ -1,0 +1,66 @@
+.quest-count { text-align: right; }
+.quest-count strong, .quest-count small { display: block; }
+.quest-count small { color: var(--muted); font-size: 11px; }
+.quest-track { background: #e5e8df; }
+.quest-track i { background: var(--green); }
+.quest-card, .codex, .leaderboard, .guild {
+  margin-bottom: 9px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.quest-card { display: flex; align-items: center; gap: 10px; }
+.quest-card.is-done { background: #f0f4e9; }
+.quest-check { width: 30px; height: 30px; flex-shrink: 0; border: 1px solid var(--line); background: white; color: var(--ink); }
+.is-done .quest-check { border-color: var(--green); background: var(--green); color: white; }
+.quest-copy { flex: 1; min-width: 0; }
+.quest-name, .quest-meta { margin: 3px 0; }
+.quest-xp { color: #896b2e; font: 10px var(--mono); }
+.delete-button { border: 0; background: transparent; color: var(--muted); font-size: 18px; }
+.delete-button:hover { color: var(--rust); }
+.add-form { display: flex; gap: 8px; padding: 8px; border: 1px solid var(--line); }
+.add-icon { color: var(--purple); }
+.add-form input { min-width: 0; flex: 1; padding: 8px; border: 1px solid var(--line); background: var(--surface); }
+.add-form button { padding: 8px; border: 1px solid var(--purple); background: var(--purple); color: white; font: 11px var(--mono); }
+.add-form button:hover { background: var(--purple-dark); }
+.codex > p { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.recent-unlocks { display: flex; gap: 5px; }
+.mini-creature { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid var(--line); background: var(--paper); }
+.collection-bar { background: #e5e8df; }
+.collection-bar i { background: #b89a48; }
+
+.leaderboard-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.leaderboard-heading h2 { font-size: 19px; }
+.leaderboard-position, .guild-points { padding: 7px 9px; background: var(--purple-soft); color: var(--purple); font: bold 12px var(--mono); }
+.leaderboard-list { margin: 0; padding: 0; list-style: none; }
+.leaderboard-list li { display: flex; align-items: center; gap: 9px; padding: 8px 0; border-top: 1px solid #eceee8; font-size: 11px; }
+.leaderboard-rank { width: 22px; color: var(--muted); font: 10px var(--mono); }
+.leaderboard-name { flex: 1; }
+.leaderboard-score { color: #896b2e; font: 10px var(--mono); }
+.leaderboard-list .your-rank { color: var(--green); font-weight: 700; }
+
+.guild-note, .profile-card p { color: var(--muted); font-size: 10px; line-height: 1.5; }
+.guild-record { color: var(--muted); font-size: 10px; }
+.guild-record strong { color: var(--green); font-family: var(--mono); }
+.duel-mode-picker { display: flex; gap: 7px; margin: 10px 0 5px; }
+.duel-mode { flex: 1; padding: 8px 5px; border: 1px solid var(--line); background: var(--surface); color: var(--purple); font: bold 11px var(--mono); }
+.duel-mode.is-selected { border-color: var(--purple); background: var(--purple); color: white; }
+.duel-mode-note { color: var(--muted); font-size: 10px; }
+.guild-player { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid #eceee8; }
+.guild-face { display: grid; width: 32px; height: 32px; flex-shrink: 0; place-items: center; background: var(--paper); font-size: 20px; }
+.guild-player-copy { flex: 1; min-width: 0; }
+.guild-player-copy strong, .guild-player-copy small { display: block; }
+.guild-player-copy strong { font-size: 10px; }
+.guild-player-copy small { margin-top: 3px; color: var(--muted); font-size: 9px; }
+.view-profile, .duel-button { padding: 7px; border: 1px solid var(--purple); background: var(--surface); color: var(--purple); font: 11px var(--mono); }
+.profile-card { margin-top: 10px; padding: 10px; border: 1px solid var(--line); background: var(--surface); }
+.profile-top { display: flex; align-items: center; gap: 9px; }
+.profile-face { display: grid; width: 48px; height: 48px; flex-shrink: 0; place-items: center; background: #f5f5f5; font-size: 30px; }
+.profile-top strong, .profile-top small { display: block; }
+.profile-top strong { font-size: 13px; }
+.profile-top small { margin-top: 4px; color: var(--muted); font-size: 10px; }
+.profile-stats { display: flex; justify-content: space-between; gap: 5px; margin: 8px 0; color: var(--muted); font: 9px var(--mono); }
+.duel-button { width: 100%; padding: 9px; border: 1px solid var(--purple); background: var(--purple); color: white; }
+.duel-button:disabled { background: #aaa; cursor: not-allowed; }
+.duel-message { min-height: 14px; color: var(--purple); font-size: 10px; line-height: 1.4; }
+.save-note { color: var(--rust); font-size: 11px; }
